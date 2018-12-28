@@ -2,12 +2,12 @@ import $axios from './axios'
 import STATIC from '../scripts/constant'
 
 /**
- * @method getNewsList
+ * @method getIdsByType
  * @desc 获取列表
  * @param {Object} data 请求携带数据
  * @returns {Promise} 响应结果
  */
-const getList = data => {
+const getIdsByType = data => {
 	return $axios({
 		url: STATIC.API.LIST,
 		method: 'GET',
@@ -16,12 +16,12 @@ const getList = data => {
 }
 
 /**
- * @method getItem
+ * @method getItems
  * @desc 获取单项
  * @param {Object} data 请求携带数据
  * @returns {Promise} 响应结果
  */
-const getItem = data => {
+const getItems = data => {
 	return $axios({
 		url: STATIC.API.ITEM,
 		method: 'GET',
@@ -44,7 +44,7 @@ const getUser = data => {
 }
 
 export default {
-	getList,
-	getItem,
+	getIdsByType,
+	getItems,
 	getUser
 }

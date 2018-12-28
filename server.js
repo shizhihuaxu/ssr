@@ -51,7 +51,7 @@ const serve = (path, cache) => express.static(resolve(path), {
 app.use('./dist', serve('./dist', true))
 
 function render (req, res) {
-	res.setHeader("Content-Type", "text/html")  // 为什么一定是双引号呢
+	res.setHeader("Content-Type", "text/html") 
 
 	const handleError = err => {
 		if(err.url) {
