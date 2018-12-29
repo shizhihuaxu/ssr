@@ -62,6 +62,17 @@ function render (req, res) {
 			res.status(500).send('500 | internal server error')
 		}
 	}
+	// 这里的 context 是 entry.server 里获取的那个context
+	const context = {
+		title: 'vue-ssr-demo',
+		url: req.url
+	}
+	renderer.renderToString(context, (err, html) => {
+		if(err) {
+			return handleError(err)
+		}
+		res.send(html)
+	})
 }
 
 app.get('*', isProd ? render : (req, res) => {

@@ -1,11 +1,10 @@
 import { createApp } from './app'
 
 // 这个导出函数由 bundleRenderer 调用
-// context 渲染环境的上下文
 export default context => {
 	return new Promise((resolve, reject) => {
 		const { app, router, store } = createApp()
-		const { url } = context
+		const { url } = context  // 在server.js里
 		const { fullPath } = router.resolve().route // 解析目标位置
 
 		if (fullPath !== url) {  // 作用是什么

@@ -41,7 +41,7 @@ export default {
 <style lang="scss">
 .comment-children {
     .comment-children {
-        margin-left 1.5em
+        margin-left: 1.5em;
     }
 }
 .comment {

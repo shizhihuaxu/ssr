@@ -1,5 +1,5 @@
 import $axios from './axios'
-import STATIC from '../scripts/constant'
+import STATIC from '../scripts/static'
 
 /**
  * @method getIdsByType
@@ -43,7 +43,7 @@ const getUser = data => {
 	})
 }
 
-export default {
+export  {
 	getIdsByType,
 	getItems,
 	getUser

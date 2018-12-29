@@ -1,1 +1,2 @@
-export default const baseUrl = ''
+const baseUrl =''
+export default baseUrl

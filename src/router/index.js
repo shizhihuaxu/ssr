@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 // module.default 的意思是 在import CreateListView 后调用它export default 默认导出的内容
-const createListView = name => () => import('@/views/CreateListView').then(module => module.default)
+const createListView = name => () => import('@/views/CreateListView').then(m => m.default(name))
 const ItemView = import('@/views/ItemView')
 const UserView = import('@/views/UserView')
 

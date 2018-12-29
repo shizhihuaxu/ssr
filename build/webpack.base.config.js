@@ -21,8 +21,9 @@ module.exports = {
 		filename: '[name].[chunkhash].js'
 	},
 	resolve: {
-		extensions: ['.js', '.vue'],
+		extensions: ['.js', '.vue', '.json'],
 		alias: {
+			'@': path.resolve(__dirname, '../src'),
 	      	'public': path.resolve(__dirname, '../public')
 	    }
 	},
@@ -81,11 +82,18 @@ module.exports = {
 	        new VueLoaderPlugin(),
 	        new webpack.optimize.ModuleConcatenationPlugin(),
 	        new MiniCssExtractPlugin({
-				filename: 'common.[chunkhash].css'
+				filename: 'common.[chunkhash].css',
+				chunkFilename: "[id].[hash].css"
 			}),
 	      ]
 	    : [
 	        new VueLoaderPlugin(),
 	        new FriendlyErrorsPlugin()
-	      ]
+	      ],
+	stats:{
+	    modules: false,
+	    children: false,
+	    chunks: false,
+	    chunkModules: false
+	}
 }

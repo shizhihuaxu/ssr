@@ -1,8 +1,8 @@
 import {
 	getIdsByType,
-	getItem
+	getItem,
 	getUser,
-}
+} from '../api/api'
 
 export default {
 	FETCH_LIST_DATA: ({ commit, dispatch, state}, { type }) => {
