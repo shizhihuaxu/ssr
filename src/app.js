@@ -6,9 +6,11 @@ import { sync } from 'vuex-router-sync'
 import title from './scripts/title'
 import * as filters from './scripts/filters'
 
+process.env.NODE_ENV === 'development' && require('@/mock')
+
 Vue.mixin(title)
 // 注册filter
-Object.key(filters).forEach(key=>{
+Object.keys(filters).forEach(key=>{
 	Vue.filter(key, filters[key])
 })
 /**

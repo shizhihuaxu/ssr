@@ -4,7 +4,7 @@ const Random = Mock.Random
 const code = 200 
 
 // 随机生成文章数据
-export default const userData = req => {
+export const userData = req => {
     let posts = [] 
 
     for (let i = 0; i < 10; i++) {

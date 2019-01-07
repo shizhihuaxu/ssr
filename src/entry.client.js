@@ -42,8 +42,11 @@ router.onReady(() => {
 			return next()
 		}
 
+		// 在路由当行前获取数据，可能获取数据时间比较长，所以添加加载指示器
+		console.log('start fetch data...')
 		Promise.all(asyncDataHooks.map(asyncData => asyncData({store, route: to})))
 			.then(() => {
+				console.log('finish')
 				next()
 			})
 			.catch(next)
