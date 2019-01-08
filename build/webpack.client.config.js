@@ -25,23 +25,25 @@ const config = merge(base, {
 		splitChunks: {
 			cacheGroups: {
 				vendors: {
-					name: 'vendor',
-					priority: -10,
-					test(moudle, chunks) {
-						return (
-				          // it's inside node_modules
-				          /node_modules/.test(module.context) &&
-				          // and not a CSS file (due to extract-text-webpack-plugin limitation)
-				          !/\.css$/.test(module.request)
-				        )
-					}, 
+					name: 'vendors',
+					// 有三个可选值：initial(初始块)、async(按需加载块)、all(全部块)，默认为all
+					chunks: 'initial',
+					test: /node_modules/,
+					minChunks: 1,  // 表示被引用的次数 默认1
+					priority: -10 // 缓存优先级 相对较高
 		        },
-				manifest: {
-					name: 'manifest',
-					priority: -20,
-				}
-			}
-		}
+		        default: {
+					test: /[\\/]src[\\/]js[\\/]/,
+					minChunks: 2,
+					priority: -20, // 相对较低
+					// 表示可以使用已经存在的块，即如果满足条件的块已经存在就使用已有的，不再创建一个新的块。
+					reuseExistingChunk: true
+		        }
+			},
+		},
+		runtimeChunk: {
+	        name: 'manifest'
+	    }
 	}
 })
 

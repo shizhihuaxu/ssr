@@ -1,4 +1,4 @@
-import ItemList from './ItemList.vue'
+import ItemList from './ItemList'
 
 export default function createListView (type) {
 	return {

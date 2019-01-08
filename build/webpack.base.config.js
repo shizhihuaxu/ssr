@@ -41,8 +41,9 @@ module.exports = {
 		    },
 	      	{
 				test: /\.js$/,
-				loader: 'babel-loader',
-				exclude: /node_modules/
+				loader: 'babel-loader?cacheDirectory',
+				exclude: /node_modules/,
+				include: path.resolve(__dirname, '../src')
 	      	},
 		    {
 		        test: /\.(png|jpg|gif|svg)$/,
@@ -71,7 +72,10 @@ module.exports = {
 	      	new UglifyjsPlugin({
                 uglifyOptions: {
                 	sourceMap: true,
-                    compress: { warnings: false }
+                    compress: { 
+                    	warnings: false,
+                    	drop_console: true, // 删除所有的 `console` 语句，可以兼容ie浏览器
+                    },
                 }
             }),
 	      	new OptimizeCSSAssetsPlugin({})
@@ -83,7 +87,7 @@ module.exports = {
 	        new webpack.optimize.ModuleConcatenationPlugin(),
 	        new MiniCssExtractPlugin({
 				filename: 'common.[chunkhash].css',
-				chunkFilename: "[id].[hash].css"
+				chunkFilename: "[id].[contenthash].css"
 			}),
 	      ]
 	    : [
