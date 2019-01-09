@@ -32,13 +32,12 @@ const config = merge(base, {
 					minChunks: 1,  // 表示被引用的次数 默认1
 					priority: -10 // 缓存优先级 相对较高
 		        },
-		        default: {
-					test: /[\\/]src[\\/]js[\\/]/,
-					minChunks: 2,
-					priority: -20, // 相对较低
-					// 表示可以使用已经存在的块，即如果满足条件的块已经存在就使用已有的，不再创建一个新的块。
-					reuseExistingChunk: true
-		        }
+		        styles: {            
+		          name: 'styles',
+		          test: /\.scss|css$/,
+		          chunks: 'all',    // merge all the css chunk to one file
+		          enforce: true
+		        },
 			},
 		},
 		runtimeChunk: {
