@@ -59,8 +59,8 @@ function render (req, res) {
 		}else if(err.code === 404) {
 			res.status(404).send('404 | page not found')
 		}else{
+			console.error(err.stack)
 			res.status(500).send('500 | internal server error')
-      		console.error(err.stack)
 		}
 	}
 	// 这里的 context 是 entry.server 里获取的那个context

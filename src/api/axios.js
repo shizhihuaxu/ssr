@@ -97,7 +97,7 @@ let $axios = function(options) {
             err.message = "HTTP版本不受支持";
             break;
           default:
-            err.message = "网络失去连接，请检查网络";
+            err.message = err;
             break;
         }
 

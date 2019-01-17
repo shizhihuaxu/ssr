@@ -1,13 +1,12 @@
 export default {
-	activeIds (state) {
-		const { activeType, itemsPerPage, lists} = state
+	getList (state) {
+		const { list } = state
 
-		if(!activeType) return []
+		return list
+	},
+	getItem (state) {
+		const { item } = state
 
-		const page = Number(state.route.params.page)  // 为什么可以从state 上获取到route
-		const start = (page - 1) * itemsPerPage
-		const end = page * itemsPerPage
-
-		return lists[activeType].slice(start, end)
+		return item
 	}
 }

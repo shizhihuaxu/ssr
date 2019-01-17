@@ -13,11 +13,6 @@ const config = merge(base, {
 		filename: 'server-bundle.js',
 		libraryTarget: 'commonjs2'  // 打包成 module.exports.default
 	},
-	resolve: {
-		alias: {
-			'create-api': './create-api-server.js'
-		}
-	},
 	externals: nodeExternals({
 	    whitelist: /\.css$/
 	}),

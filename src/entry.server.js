@@ -5,7 +5,7 @@ export default context => {
 	return new Promise((resolve, reject) => {
 		const { app, router, store } = createApp()
 		const { url } = context  // 在server.js里
-		const { fullPath } = router.resolve().route // 解析目标位置
+		const { fullPath } = router.resolve(url).route // 解析目标位置
 
 		if (fullPath !== url) {  // 作用是什么
             return reject({ url: fullPath })
@@ -20,7 +20,7 @@ export default context => {
         		return reject({ code: 404})
         	}
 
-        	Promise.all(matched.map(({asyncData}) => asyncData && asyncdata({
+        	Promise.all(matched.map(({asyncData}) => asyncData && asyncData({
         		store,
         		route: router.currentRoute
         	}))).then(() => {
