@@ -13,7 +13,7 @@ export function createRouter() {
 		mode: 'history',
 		scrollBehavior: () => ({ y: 0 }),
 		routes: [
-			{ path: '/index', component: createListView(NewsList) },
+			{ path: '/list', component: createListView('news-list') },
 			{ path: '/detail', component: NewsDetail },
 			{ path: '/', redirect: '/index' }
 		]

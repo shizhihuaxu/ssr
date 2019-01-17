@@ -1,7 +1,6 @@
 export default {
 	getList (state) {
 		const { list } = state
-
 		return list
 	},
 	getItem (state) {

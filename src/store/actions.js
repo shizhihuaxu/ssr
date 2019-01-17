@@ -4,9 +4,11 @@ import {
 } from '@/api/api'
 
 export default {
-	FETCH_LIST_DATA: ({ commit, dispatch, state}) => {      
-		return getNewslist()
-			.then(list => commit('SET_LIST', { list }))  
+	FETCH_LIST_DATA: ({ commit, dispatch, state}) => { 
+		//  这样使用请求的接口
+		return getNewsList().then(res => {
+	      commit('SET_LIST', {list: res.data.results})
+	    })
 	},
 	FETCH_ITEM: ({ commit, state}, { id }) => {
 		

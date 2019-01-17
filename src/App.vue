@@ -5,8 +5,7 @@
 				<router-link to="/" exact>
 				  <img class="logo" src="~public/logo-48.png" alt="logo">
 				</router-link>
-				<router-link to="/index">Top</router-link>
-				<router-link to="/news">New</router-link>
+				<router-link to="/list">list</router-link>
 			</nav>
 	    </header>
 	    <transition name="fade" mode="out-in">

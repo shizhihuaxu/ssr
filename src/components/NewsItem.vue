@@ -6,10 +6,10 @@
 		<br>
 		<span class="meta">
 			<span class="by">
-				by {{ item.by }}
+				by {{ item.author }}
 			</span>
 			<span class="time">
-				{{ item.time | timeAgo }} ago
+				{{ item.create_time | timeAgo }} ago
 			</span>
 		</span>
 	</li>
