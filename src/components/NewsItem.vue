@@ -9,14 +9,13 @@
 				by {{ item.author }}
 			</span>
 			<span class="time">
-				{{ item.create_time | timeAgo }} ago
+				{{ item.create_time | formatTime }}
 			</span>
 		</span>
 	</li>
 </template>
 
 <script>
-import { timeAgo } from '@/scripts/filters'
 
 export default {
 	name: 'news-item',
@@ -38,16 +37,10 @@ export default {
 	border-bottom: 1px solid #eee;
 	position: relative;
 	line-height: 20px;
+	a { color: #079087; }
 	.meta{
 		font-size: .85em;
 		color: #828282;
-		a {
-			color: #828282;
-			text-decoration: underline;
-			&:hover {
-				color: #ff6600;
-			}
-		}
 	}
 }
 </style>

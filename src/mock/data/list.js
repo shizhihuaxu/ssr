@@ -25,9 +25,9 @@ export const listData = req => {
     return [
             {   
                 id: 1,
-                title: 'hello title',
-                by: 'zhangsan',
-                time: '80'
+                title: 'test title',
+                author: 'zhangsan',
+                create_time: ''
             }
         ]
 }

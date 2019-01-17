@@ -7,10 +7,10 @@ import STATIC from '@/scripts/static'
  * @param {Object} data 请求携带数据
  * @returns {Promise} 响应结果
  */
-const getNewsList = () => {
+export const getNewsList = () => {
 	return $axios({
-		url: STATIC.API.LIST,
-		method: 'GET',
+		url: STATIC.API.List,
+		method: 'get',
 	})
 }
 
@@ -20,15 +20,9 @@ const getNewsList = () => {
  * @param {Object} data 请求携带数据
  * @returns {Promise} 响应结果
  */
-const getNewsDetail = data => {
+export const getNewsDetail = id => {
 	return $axios({
-		url: STATIC.API.List,
-		method: 'GET',
-		data
+		url: `${STATIC.API.List}${id}`,
+		method: 'get',
 	})
-}
-
-export  {
-	getNewsList,
-	getNewsDetail,
 }

@@ -38,7 +38,7 @@ let $axios = function(options) {
         ) {
           config.data = qs.parse(config.data);
         }
-        if (config.method.toLocaleLowerCase() === "get") {
+        if (config.method === "get") {
           config.data = qs.stringify(config.data);
           config.data ? (config.url = `${config.url}?${config.data}`) : "";
         }

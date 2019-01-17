@@ -1,6 +1,6 @@
 const STATIC = {
 	API: {
-		List: 'list',
+		List: 'news/',
 	}
 }
 export default STATIC 

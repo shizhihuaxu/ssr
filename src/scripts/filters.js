@@ -1,17 +1,16 @@
-export function timeAgo (time) {
-  const between = Date.now() / 1000 - Number(time)
-  if (between < 3600) {
-    return pluralize(~~(between / 60), ' minute')
-  } else if (between < 86400) {
-    return pluralize(~~(between / 3600), ' hour')
-  } else {
-    return pluralize(~~(between / 86400), ' day')
-  }
-}
+// 格式化时间
+export function formatTime (time) {
+    let year = ''
+    let month = ''
+    let day = ''
+    let date = new Date(time)
 
-function pluralize (time, label) {
-  if (time === 1) {
-    return time + label
-  }
-  return time + label + 's'
+    year = date.getFullYear()
+    month = date.getMonth() + 1
+    day = date.getDate()
+
+    month = month < 10 ? `0${month}` : month
+    day = day < 10 ? `0${day}` : day 
+
+    return `${year}-${month}-${day}`
 }

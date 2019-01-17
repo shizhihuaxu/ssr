@@ -6,7 +6,7 @@ import { sync } from 'vuex-router-sync'
 import title from './scripts/title'
 import * as filters from './scripts/filters'
 
-process.env.NODE_ENV === 'development' && require('@/mock/index')
+process.env.NODE_ENV === 'development' && require('./mock/index')
 
 Vue.mixin(title)
 // 注册filter
