@@ -4,8 +4,10 @@ import { createApp } from './app'
 export default context => {
 	return new Promise((resolve, reject) => {
 		const { app, router, store } = createApp()
-		const { url } = context  // 在server.js里
-		const { fullPath } = router.resolve(url).route // 解析目标位置
+        // 客户端请求服务器的url
+		const { url } = context  
+        // 通过请求的url 解析目标组件
+		const { fullPath } = router.resolve(url).route 
 
 		if (fullPath !== url) {  // 作用是什么
             return reject({ url: fullPath })
